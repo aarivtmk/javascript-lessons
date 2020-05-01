@@ -1,278 +1,400 @@
-/*
-in this lesson, we are going to discuss the following concepts
-1.variables
-2.console.log
-3.datatypes
-4.rules of variables
-5.a glimspse at reserved keywords
-6.comments and multiline comment
-7.variable mutation and type coercion
-8.alert
-9.prompt
-10.basic operators
-11.operator precedence
-12.Grouping operators
-13.Multiple assignments
-14. control statements
-15. loops
-16.truth and falsy values
-17.Task Problems
-18.functions
+// /*
+// type coercion
+// variable mutation
+// variables in detail - primitives
+// difference between primitives
+// == and ===
+// arrays
+// objects
+// initializing objects
 
-*/
+// objects and functions
 
-// single line comment
-/*
-this 
-is 
-a  multi line comment
-*/
 
-var marks = 50 // integer literal
-var temperature = 30.4 // float literal
-var name = 'Mohammed' // string literal
-var grade = 'A'  // character literal
-var is_raining = true
+// OBJECT ORIENTED PROGRAMMING IN JAVASCRIPT
+// FUNCTION CONSTRUCTORS
+// PROTOTYPES
+// INHERITANCE
+// EXPLANATION WITH CONSOLE
+// primitives vs objects
+// functions in details - passing functions as an arugument
+// IIFE - immediately invoked function
+// closures
 
+// */
 
 
-console.log(marks)
-console.log(name)
+// // type coercion - automatically converts integer or boolen or float to string
+// name = 'steve';
+// age = 60;
 
-// concatenation
-var first_name = 'Manish'
-var last_name = 'kumar'
+// // console.log(name + age);
 
-console.log('My name is : ' + first_name + ' ' + last_name)
+// var job, is_married;
+// job = 'teacher';
+// is_married = false;
 
-// rules of variables
-// start with only letters or _ or $
-/*
+// // console.log(name + ' is a ' + age + ' years old and' + ' is a' + job + ' and is he married?' + is_married);
 
-PYTHON IS CASE SENSITIVE MEANS
-NAME AND name are different
+// // variable mutation - able to vhange the value of variables
 
-in javascript , they are same
-*/
+// age = 'sixty';
+// // console.log(age);
 
-var Name = 'sandeep'
-console.log('name is ', name)
+// // console.log(name + ' is a ' + age + ' years old and' + ' is a' + job + ' and is he married?' + is_married);
 
 
-// variable mutation and type coercion
+// // primtives : Number, String,Boolean,undefined,null
 
-name = 'steve'
-age = 20
-console.log('name is :' + name + '       ' + age)
+// // we use NULL to definine nothing
 
-// alert('Hey Manish! You got a new message!!')
+// // var n = null;
+// // console.log(n);
+// // console.log(typeof (n));
+// // null has a datatype of object
 
-// how to take input from console
+// // what is undefined
 
-// var first_name = prompt('What is first Name?')
-// var last_name = prompt('what is your last name?')
-// alert('your user name is ' + first_name + ' ' + last_name)
-// console.log('your username is ' + first_name + ' ' + last_name)
+// // var marks;
+// // console.log(marks);
 
+// // var temp = undefined;
+// // console.log(temp);
+// // console.log(typeof (temp));
 
-// basic operators
-// +,-,/,%,*,=,+=,-=,
-// a+b 
-// + - operator
-// a,b - operands
+// // NOTE: undefined has no data type
 
+// var name = ""
+// // empty means empty string
+// // console.log(name);
 
-var dob_sandeep = 1997
-var age_sandeep = 2020 - dob_sandeep
-console.log(age_sandeep)
 
-var dob_steve = 1940
-var age_steve = 2020 - dob_steve
-console.log(age_steve)
+// // == and ===
 
-// find who is elder person
+// // === strict comparision
 
-// var elder = age_sandeep > age_steve
+// // var number1 = '1';
+// // var number2 = 1;
 
-// console.log(elder)
+// // console.log(number1 === number2);
 
-if (age_steve > age_sandeep) {
-    console.log('Steve is elder than Sandeep')
-}
-else {
-    console.log('Sandeep is elder than Steve')
-}
-age = 2.2
-console.log(typeof (age))
-name = 'manish'
-console.log(typeof (name))
+// // array is nothing but list
 
-// operator precedence
+// // var marks = [1, 2, 4, 'hi']
+// // console.log(marks);
 
-var present_year = 2020
-var dob_sandeep = 2004
-var age_for_vote = 18
+// // marks.push(100);
+// // console.log(marks);
+// // marks.pop();
+// // console.log(marks);
 
-var elgible_or_not = present_year - dob_sandeep >= age_for_vote
 
-console.log(elgible_or_not)
 
-var a = 5
-// a = a + 3
-a += 3
+// // object
 
-console.log(a)
+// // object is nothing but dictionary
 
+// // var student = {
+// //     first_name: 'steve',
+// //     last_name: 'jobs',
+// //     family: ['mohammed', 'manish']
+// // }
 
-// increment and decrement operators
+// // console.log(student['last_name']);
+// // console.log(student.family[1]);
 
-// a = 2
-// a++ // a= a+1
-// console.log(a)
+// // student['last_name'] = 'dorsey';
+// // console.log(student);
 
-// a-- //a = a-1
-// console.log(a)
+// // student.first_name = 'jack';
+// // console.log(student);
 
 
-a = 3
+// // initializing objects
 
-a = a * a //carot
-console.log(a)
+// // var student2 = new Object();
+// // student2.name = 'aariv';
+// // student2.rollno = 202;
 
+// // console.log(student2);
 
-is_married = false
 
-if (is_married) {
-    console.log('you are married')
-}
-else {
-    console.log('not married')
-}
 
-// find a no is 0 or positive or negative
+// // objects and methods
 
-var no = 0
-if (no > 0) {
-    console.log('postive')
-}
-else if (no == 0) {
-    console.log('zero')
+// // var student = {
+// //     first_name: 'steve',
+// //     last_name: 'jobs',
+// //     yearofBirth: 1990,
+// //     calculateAge: function () {
+// //         return 2020 - this.yearofBirth;
 
-}
-else {
-    console.log('negative')
+// //     }
+// // }
 
-}
+// // age = student.calculateAge();
 
+// // student['age'] = age;
+// // console.log(student);
 
-// and or not
-//  && || !
 
-// grant pension
-// 1) more than 60y
-// 2) applied status
+// var student = {
+//     first_name: 'steve',
+//     last_name: 'jobs',
+//     yearofBirth: 1990,
+//     calculateAge: function () {
+//         this.age = 2020 - this.yearofBirth;
+//         console.log(this.age);
 
-age = 61
-applied_status = false
 
-if (age > 60 || applied_status == true) {
-    console.log('grant pension')
-
-}
-else {
-    console.log('pension rejected')
-}
-// AND & -AMPERSAND
-
-// TT - T
-// TF - F
-// FT -F
-// FF - F
-
-// OR - ||
-
-// FF - F
-// TF -T 
-// FT - T 
-// TT -T 
-
-
-
-// kid - <13
-// teen - <20
-// youngman - >19
-
-var age = 6
-
-if (age > 12 && age < 20) {
-    console.log('you are an teenager')
-}
-
-else if (age > 20 && age < 35) {
-    console.log('you are an youngster')
-
-}
-
-else if (age < 13) {
-    console.log('you are a kid')
-}
-else {
-    console.log('you are an adult')
-}
-
-// terenary operator
-
-var age = 5
-var eligible_for_vote
-console.log(eligible_for_vote = (age > 18) ? 'elgible' : 'Not Elig');
-
-
-// switch case - if else
-
-
-
-
-// if (job == 'teacher') {
-//     console.log(name + 'is a' + job)
+//     }
 // }
-// else if (job == 'engineer') {
-//     console.log(name + 'is a' + job)
+// // console.log(student);
+
+// // student.calculateAge()
+// // console.log(student);
+
+
+// // oop in javascript
+
+// // inorder to create a blueprint, here we use function constructors
+// //  instead of class
+
+
+
+// // var Person = function (name, yearofBirth, job) {
+// //     this.name = name;
+// //     this.yearofBirth = yearofBirth;
+// //     this.job = job;
+
+
+// //     // function to calculate age
+// //     this.calculateAge = function () {
+// //         console.log(2020 - this.yearofBirth);
+
+// //     }
+
+// // }
+
+// // var s1 = new Person('mohammed zulfekar', 1998, 'teacher');
+// // s1.calculateAge();
+// // console.log(s1.yearofBirth);
+
+
+// // var s2 = new Person('sandeep zulfekar', 1997, 'software engineer');
+
+// // s2.calculateAge();
+
+
+
+// // var Dog = function (name, height, weight, breed) {
+// //     this.name = name;
+// //     this.height = height;
+// //     this.weight = weight;
+// //     this.breed = breed;
+
+// //     this.bark = function () {
+// //         console.log(this.name + ' barks bow bow!!!');
+
+// //     }
+// // }
+
+// // dog1 = new Dog('jimmy', 3, 20, 'Lab');
+
+// // console.log(dog1.name);
+// // console.log(dog1.bark());
+
+
+
+
+
+// // inheritance
+// // we use prototypes for inhertitance in javascript
+
+
+// var Person = function (name, yearofBirth, job) {
+//     this.name = name;
+//     this.yearofBirth = yearofBirth;
+//     this.job = job;
 
 // }
 
-// else {
-//     console.log('job not found')
+
+// Person.prototype.calculateAge = function () {
+//     console.log(2020 - this.yearofBirth);
 
 // }
 
-// give salary to people based on their designation
-var job = 'teacher'
+// Person.prototype.last_name = 'SBI'
+
+// var man1 = new Person('manish', 1997, 'developer');
+// var man2 = new Person('darpan', 1998, 'student');
+// var man3 = new Person('stevejobs', 1960, 'ceo');
 
 
 
-switch (job) {
-    case 'manager':
-        console.log('salary:10000')
-        break
+// // console.log(man1.name);
+// // console.log(man2.name);
+// // console.log(man3.name);
+// // console.log(man1.yearofBirth);
+// // console.log(man2.yearofBirth);
+// // console.log(man3.yearofBirth);
 
-    case 'teacher':
-        console.log('salary:5000')
-        break
-
-
-    case 'assistant':
-        console.log('salary:3000')
-        break
+// man1.calculateAge()
+// console.log(man1.last_name);
 
 
-    default:
-        console.log('base salary:1000')
 
 
+
+// // var man1 = {
+// //     first_name: 'steve',
+// //     last_name: 'jobs',
+// //     yearofBirth: 1990,
+// //     calculateAge: function () {
+// //         this.age = 2020 - this.yearofBirth;
+// //         console.log(this.age);
+
+
+// //     }
+// // }
+
+// // var man2 = {
+// //     first_name: 'steve',
+// //     last_name: 'jobs',
+// //     yearofBirth: 1990,
+// //     calculateAge: function () {
+// //         this.age = 2020 - this.yearofBirth;
+// //         console.log(this.age);
+
+
+// //     }
+// // }
+
+// // var man3 = {
+// //     first_name: 'steve',
+// //     last_name: 'jobs',
+// //     yearofBirth: 1990,
+// //     calculateAge: function () {
+// //         this.age = 2020 - this.yearofBirth;
+// //         console.log(this.age);
+
+
+// //     }
+// // }
+
+
+
+
+// var BankAtm = function (cname, cardNo, branch, balance) {
+//     this.cname = cname;
+//     this.cardNo = cardNo;
+//     this.branch = branch;
+//     this.balance = balance;
+
+// }
+
+// BankAtm.prototype.withdrawal = function (wa) {
+//     if (this.balance > wa) {
+//         this.balance = this.balance - wa;
+//     }
+//     else {
+//         alert('sorry insufficient funds')
+//     }
+//     return this.balance;
+// }
+
+// BankAtm.prototype.balEnq = function () {
+//     console.log('your bal is' + this.balance);
+// }
+
+// person1 = new BankAtm('steve', 121, 'ameerpet', 1000);
+// person2 = new BankAtm('jack', 122, 'srnagar', 1500);
+// person3 = new BankAtm('elon', 123, 'charminar', 2000);
+
+// console.log(person1.branch);
+
+// console.log(person1.withdrawal(800));
+
+
+// copying primitives
+
+// var a = 23;
+// var b = a;
+// a = 40;
+
+// console.log(a);  //40
+// console.log(b);  //23
+
+// // reference objects
+
+// var obj1 = {
+//     name: 'steve',
+//     age: 26
+// };
+
+// var obj2 = obj1;
+// obj1.age = 30;
+
+// console.log(obj1.age);
+// console.log(obj2.age);
+
+
+
+// passing object as parameter of the function
+
+// age = 20
+
+// function changeDetails(n) {
+
+//     n = 25;
+//     console.log(n);
+
+
+// }
+
+
+// changeDetails(age);
+// console.log(age);
+
+
+
+
+
+
+// var person_details = {
+//     name: 'steve',
+//     city: 'New york'
+// }
+
+
+// function changeDetails(object) {
+
+//     object.name = 'jobs';
+//     object.city = 'hyd';
+//     console.log(object.name);
+
+
+// }
+
+
+// changeDetails(person_details)
+
+// console.log(person_details.name);
+
+
+
+var person_details = {
+    // name: 'steve',
+    // city: 'New york'
 }
 
-// control statemtns - if,ifelse,else if ladder,switch case
-
-// loops : for while do while
+console.log(person_details);
 
 
+
+var person = new Object();
+// person.name = 'jobs';
+// person['city'] = 'sec';
+
+console.log(person);
