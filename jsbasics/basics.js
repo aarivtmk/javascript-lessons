@@ -15,6 +15,7 @@
 // FUNCTION CONSTRUCTORS
 // PROTOTYPES
 // INHERITANCE
+
 // EXPLANATION WITH CONSOLE
 // primitives vs objects
 // functions in details - passing functions as an arugument
