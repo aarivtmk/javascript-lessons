@@ -1,152 +1,164 @@
-// to do list
-// modules
-// private and public data
-// encapusulation
+// modules - using iife and closures
+// adv: private and public - you can control access
 
-
-// we use modules to split out code iinto small parts. so that no other
-// code can overwrite. 
 
 
 // data module
+
 var budgetController = (function () {
 
     var Expense = function (id, description, value) {
         this.id = id;
         this.description = description;
         this.value = value;
-    }
+    };
 
     var Income = function (id, description, value) {
         this.id = id;
         this.description = description;
         this.value = value;
-    }
+    };
 
-    var data = {
+
+
+    var database = {
         allitems: {
             exp: [],
             inc: [],
-
         },
 
-        total: {
+        totals: {
             exp: [],
-            inc: []
-        }
+            inc: [],
+        },
+
     };
 
-    return {
-
-    }
-
-
-
-})();
-
-
-
-
-
-
-
-// ui module
-
-var uiController = (function () {
-    var DOMstring = {
-        inputType: '.add__type',
-        inputDescription: '.add__description',
-        inputValue: '.add__value',
-        inputButton: '.add__btn'
-
-    }
 
     return {
-        getInput: function () {
-            // var type = document.querySelector(DOMstring.inputType).value;
-            // var description = document.querySelector(DOMstring.inputDescription).value;
-            // var value = document.querySelector(DOMstring.inputValue).value;
-            // return type,description,value;
+        addItem: function (type, des, val) {
+            var newItem, id;
+            // id - [1,2,4] - next id =4
+            // id - [1,3,]- next id =4
+            // id = lastitem+1
 
-            return {
-                type: document.querySelector(DOMstring.inputType).value,
-                description: document.querySelector(DOMstring.inputDescription).value,
-                value: document.querySelector(DOMstring.inputValue).value,
+            if (database.allitems[type].length > 0) {
+                id = database.allitems[type][database.allitems[type].length - 1].id + 1;
+
+            }
+            else {
+                id = 0;
             }
 
 
 
+            if (type === 'exp') {
+                newItem = new Expense(id, des, val);
+            }
+            else if (type === 'inc') {
+                newItem = new Income(id, des, val);
+            }
+
+            // push data to database
+            database.allitems[type].push(newItem);
+            return newItem;
 
 
-        },
-
-        getDomString: function () {
-            return DOMstring;
         }
-
-
-
-
-    };
-
-
+    }
 
 
 })();
 
 
 
+// template or user interface module
+var uiController = (function () {
 
-// create control module
-
-var controller = (function () {
-    var DOM = uiController.getDomString();
-
-
-    document.querySelector(DOM.inputButton).addEventListener('click', function () {
-
-        ctrlAdditem();
-
-
-    });
-
-    document.addEventListener('keypress', function (key) {
-        // console.log(key);
-        if (key.keyCode === 13) {
-            // console.log('enter pressed');
-
-            ctrlAdditem();
+    var DOMStrings = {
+        inputType: '.add__type',
+        inputDescription: '.add__description',
+        inputValue: '.add__value',
+        inputButton: '.add__btn',
+    };
 
 
+    // var obj = {
 
+    // }
+
+    return {
+        getInput: function () {
+
+            return {
+                type: document.querySelector(DOMStrings.inputType).value,
+                description: document.querySelector(DOMStrings.inputDescription).value,
+                value: document.querySelector(DOMStrings.inputValue).value,
+            }
+
+        },
+
+        getDOM: function () {
+            return DOMStrings;
         }
-
-
-    });
-
-    ctrlAdditem = function () {
-
-        var newItem;
-
-        //1. get the field input data
-        var input = uiController.getInput();
-        console.log(input);
-
-
-        // 2 send item to budget controller data base
-
-
-
-
-        //3. display item on ui
-
-
-
     }
 
 
 
 
 
-
 })();
+
+
+// controller module
+var viewcontroller = (function (budgetCntrl, uiCntrl) {
+
+
+
+    var ctrlAdditem = function () {
+        var input = uiCntrl.getInput();
+        console.log(input);
+
+
+        // add item to the budget controller
+
+        var item = budgetCntrl.addItem(input.type, input.description, input.value);
+        console.log('the newitem in the database is', item);
+
+    }
+
+    var setupEvents = function () {
+        var DOM = uiCntrl.getDOM();
+        console.log(DOM);
+
+        // add event listener
+        document.querySelector(DOM.inputButton).addEventListener('click', function () {
+            ctrlAdditem();
+
+        });
+
+        document.addEventListener('keypress', function (key) {
+
+            if (key.keyCode === 13) {
+                ctrlAdditem();
+
+            }
+
+
+        });
+    }
+
+
+    return {
+        startEvent: function () {
+            console.log('app started');
+
+            setupEvents();
+        }
+    }
+
+
+
+})(budgetController, uiController);
+
+viewcontroller.startEvent();
